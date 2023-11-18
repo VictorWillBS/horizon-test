@@ -18,4 +18,14 @@ class BatteryController extends Controller
     {
         $this->serviceBattery = $serviceBattery;
     }
+    public function Create(CreateBattery $request)
+    {
+        try {
+            $validatedData = $request->validated();
+            $newBattery =  $this->serviceBattery->create($validatedData);
+            return response()->json(["status" => "created", "battery" => $newBattery], 201);
+        } catch (\Throwable $th) {
+            return $this->getErrorResponse($th);
+        }
+    }
 }
