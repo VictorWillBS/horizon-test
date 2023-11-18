@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\BatteryController;
-use App\Http\Controllers\Surfer\SurferController;
+use App\Http\Controllers\SurferController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
