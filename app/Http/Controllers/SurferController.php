@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateSurfer;
+use App\Http\Requests\StoreSurferRequest;
 use App\Http\Services\SurferService;
 use App\Traits\ErrorHandler;
 use Illuminate\Http\Request;
@@ -18,7 +18,7 @@ class SurferController extends Controller
         $this->surferService = $surferService;
     }
 
-    public function create(CreateSurfer $request)
+    public function create(StoreSurferRequest $request)
     {
         try {
             $validatedData = $request->validated();

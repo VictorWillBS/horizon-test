@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\Rules\CreateSurfer as RulesCreateSurfer;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateSurfer extends FormRequest
+class StoreSurferRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
