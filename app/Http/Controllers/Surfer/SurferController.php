@@ -28,4 +28,13 @@ class SurferController extends Controller
             return $this->getErrorResponse($th);
         }
     }
+    public function getAll()
+    {
+        try {
+            $allSurfers = $this->surferService->getAllSurfers();
+            return response()->json($allSurfers, 200);
+        } catch (\Throwable $th) {
+            return $this->getErrorResponse($th);
+        }
+    }
 }
