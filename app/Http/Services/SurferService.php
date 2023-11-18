@@ -26,4 +26,10 @@ class SurferService
         $newSurfer = $surferRepository->create($newSurferData);
         return $newSurfer;
     }
+    public function getAllSurfers()
+    {
+        $surferRepository = $this->surferRepository;
+        $allSurfers =  $surferRepository->findAll();
+        return $allSurfers;
+    }
 }
