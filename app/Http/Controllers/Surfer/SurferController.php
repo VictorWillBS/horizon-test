@@ -32,7 +32,7 @@ class SurferController extends Controller
     {
         try {
             $allSurfers = $this->surferService->getAllSurfers();
-            return response()->json($allSurfers, 200);
+            return response()->json(["surfer" => $allSurfers], 200);
         } catch (\Throwable $th) {
             return $this->getErrorResponse($th);
         }
