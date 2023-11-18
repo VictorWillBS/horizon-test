@@ -17,4 +17,8 @@ class SurferRepository
     {
         return Surfer::where('number', $number)->first();
     }
+    public function findAll()
+    {
+        return Surfer::get();
+    }
 }
