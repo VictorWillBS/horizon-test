@@ -19,4 +19,8 @@ class Wave extends Model
     {
         return $this->belongsTo(Battery::class);
     }
+    public function surfer()
+    {
+        return $this->hasOne(Surfer::class, "number", "surfer_number");
+    }
 }
