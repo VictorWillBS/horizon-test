@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BatteryController;
 use App\Http\Controllers\SurferController;
+use App\Http\Controllers\WaveController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,4 +28,8 @@ Route::prefix('/surfer')->controller(SurferController::class)->group(function ()
 
 Route::prefix('/batery')->controller(BatteryController::class)->group(function () {
     Route::post('/', 'create')->name('battery.create');
+});
+
+Route::prefix('/wave')->controller(WaveController::class)->group(function () {
+    Route::post('/', 'create')->name('wave.create');
 });
