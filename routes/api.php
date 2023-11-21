@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BatteryController;
+use App\Http\Controllers\NotesController;
 use App\Http\Controllers\SurferController;
 use App\Http\Controllers\WaveController;
 use Illuminate\Http\Request;
@@ -32,4 +33,8 @@ Route::prefix('/batery')->controller(BatteryController::class)->group(function (
 
 Route::prefix('/wave')->controller(WaveController::class)->group(function () {
     Route::post('/', 'create')->name('wave.create');
+});
+
+Route::prefix('/notes')->controller(NotesController::class)->group(function () {
+    Route::post('/', 'create')->name('notes.create');
 });
