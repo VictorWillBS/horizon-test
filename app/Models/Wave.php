@@ -15,4 +15,8 @@ class Wave extends Model
     {
         return $this->hasOne(Notes::class, "wave_id", "id");
     }
+    public function battery()
+    {
+        return $this->belongsTo(Battery::class);
+    }
 }
