@@ -29,6 +29,7 @@ Route::prefix('/surfer')->controller(SurferController::class)->group(function ()
 
 Route::prefix('/batery')->controller(BatteryController::class)->group(function () {
     Route::post('/', 'create')->name('battery.create');
+    Route::get('/{id}/winner', 'getWinner')->name('battery.winner');
 });
 
 Route::prefix('/wave')->controller(WaveController::class)->group(function () {
