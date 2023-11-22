@@ -2,6 +2,7 @@
 
 namespace App\Http\Services;
 
+use App\Exceptions\NotFound;
 use App\Http\Repositories\BatteryRepository;
 use Illuminate\Http\Request;
 
@@ -21,10 +22,13 @@ class BatteryService
     public function getWinner(int $id)
     {
         $waves = $this->batteryRepository->getBatteryWaves($id);
+        if ($waves->isEmpty()) {
+            throw new NotFound("No waves founded in this battery.");
+        }
 
         $surfers = $this->getSurfersScores($waves);
-
         $potentialWinner = $this->compareSurfersScores($surfers);
+
         if (count($potentialWinner) > 1) {
             return ["battery_status" => "Draw", "surfers" => $potentialWinner];
         }
@@ -34,6 +38,9 @@ class BatteryService
     protected function getSurfersScores($waves)
     {
         foreach ($waves as $wave) {
+            if (!$wave->notes) {
+                throw new NotFound("wave " . $wave->id . " has no scores.");
+            }
             $notes = $wave->notes;
             $surfers[$wave->surfer->number]['surfer'] = $wave->surfer;
 
