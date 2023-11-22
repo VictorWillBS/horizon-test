@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreNotesRequest extends FormRequest
+class StoreScoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +23,8 @@ class StoreNotesRequest extends FormRequest
     {
         return [
             "wave_id" => "integer|required|exists:waves,id",
-            "notes" => "array|required|size:3",
-            "notes.*" => "integer|required",
+            "scores" => "array|required|size:3",
+            "scores.*" => "integer|required",
         ];
     }
 }
