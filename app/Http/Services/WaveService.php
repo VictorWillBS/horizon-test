@@ -2,6 +2,7 @@
 
 namespace App\Http\Services;
 
+use App\Exceptions\NotFound;
 use App\Http\Repositories\WaveRepository;
 
 class WaveService
@@ -15,6 +16,10 @@ class WaveService
     }
     public function create(array $newWaveData)
     {
+        $batteryWhereSurferExists = $this->waveRepository->findBatteryByIdAndSurferNumber($newWaveData);
+        if (!$batteryWhereSurferExists) {
+            throw new NotFound("No found surfer in this battery ");
+        }
         $newWave = $this->waveRepository->create($newWaveData);
         return $newWave;
     }
