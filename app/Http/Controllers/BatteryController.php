@@ -31,8 +31,8 @@ class BatteryController extends Controller
     public function getWinner($id)
     {
         try {
-            $winner =  $this->serviceBattery->getWinner($id);
-            return response()->json(["winner" => $winner], 200);
+            $batteryResult =  $this->serviceBattery->getWinner($id);
+            return response()->json($batteryResult, 200);
         } catch (\Throwable $th) {
             return $this->getErrorResponse($th);
         }
