@@ -57,6 +57,17 @@ Este projeto é uma API desenvolvida em Laravel que fornece serviços de gestão
   - Método: `GET`
   - URL: `http://localhost:8000/api/battery/{$id}/winner`
   
+- **Criar uma nova Onda:**
+  - Método: `POST`
+  - URL: `http://localhost:8000/api/wave`
+  - Parâmetros: 
+    - `surfer_id` (number): Id do surfista
+    - `battery_id` (number): Id da bateria 
+  - Exemplo usando cURL:
+    ```bash
+    curl -X POST -H "Content-Type: application/json" -d '{"surfer_id":1,"battery_id":1}' http://localhost:8000/api/wave
+    ```
+
 
 - **Criar uma nova Nota:**
   - Método: `POST`
@@ -67,16 +78,6 @@ Este projeto é uma API desenvolvida em Laravel que fornece serviços de gestão
   - Exemplo usando cURL:
     ```bash
     curl -X POST -H "Content-Type: application/json" -d '{"wave_id": 01, "scores":[8,10,9]}' http://localhost:8000/api/score
-    ```
-- **Criar uma nova Nota:**
-  - Método: `POST`
-  - URL: `http://localhost:8000/api/wave`
-  - Parâmetros: 
-    - `surfer_id` (number): Id do surfista
-    - `battery_id` (number): Id da bateria 
-  - Exemplo usando cURL:
-    ```bash
-    curl -X POST -H "Content-Type: application/json" -d '{"surfer_id":1,"battery_id":1}' http://localhost:8000/api/wave
     ```
 
 ## Teste E2E Manual
