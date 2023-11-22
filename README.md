@@ -7,10 +7,11 @@ Este projeto é uma API desenvolvida em Laravel que fornece serviços de gestão
 - PHP [`8.1`]
 - Composer
 - Laravel [`10.x`]
+- MYSQL [`8.0`]
 
 ## Instalação
-1. Clone o repositório: `git clone https://github.com/seu-usuario/seu-projeto.git`
-2. Navegue até o diretório do projeto: `cd seu-projeto`
+1. Clone o repositório: `git clone https://github.com/VictorWillBS/horizon-test`
+2. Navegue até o diretório do projeto: `cd horizon-test`
 3. Instale as dependências: `composer install`
 4. Copie o arquivo de configuração: `cp .env.example .env`
 5. Configure o arquivo `.env` com suas configurações de banco de dados e outras necessárias.
@@ -22,6 +23,12 @@ Este projeto é uma API desenvolvida em Laravel que fornece serviços de gestão
 - Acesse a API em: `http://localhost:8000`
 
 ## Rotas
+
+
+- **Obter todos os surfistas:**
+  - Método: `GET`
+  - URL: `http://localhost:8000/api/surfer/all`
+
 - **Criar um novo surfista:**
   - Método: `POST`
   - URL: `http://localhost:8000/api/surfer`
@@ -31,13 +38,8 @@ Este projeto é uma API desenvolvida em Laravel que fornece serviços de gestão
     - `number` (number): Número do surfista
   - Exemplo usando cURL:
     ```bash
-    curl -X POST -H "Content-Type: application/json" -d '{"name": "Gabriel Medina", "country": "Brasil", "number": "01"}' http://localhost:8000/api/surfer
+    curl -X POST -H "Content-Type: application/json" -d '{"name": "Gabriel Medina", "country": "Brasil", "number": "01"}' http://localhost:8000/api/surfer/all
     ```
-
-- **Obter todos os surfista:**
-  - Método: `Get`
-  - URL: `http://localhost:8000/api/surfer/all`
-
 
 - **Criar uma nova Bateria de Ondas:**
   - Método: `POST`
