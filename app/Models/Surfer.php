@@ -9,5 +9,10 @@ class Surfer extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['number','name','country'];
+    protected $fillable = ['number', 'name', 'country'];
+
+    public function waves()
+    {
+        return $this->hasMany(Wave::class, "surfer_number", "number");
+    }
 }
