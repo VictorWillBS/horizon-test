@@ -11,9 +11,9 @@ class Wave extends Model
 
     protected $fillable = ["surfer_number", "battery_id"];
 
-    public function notes()
+    public function scores()
     {
-        return $this->hasOne(Notes::class, "wave_id", "id");
+        return $this->hasOne(Score::class, "wave_id", "id");
     }
     public function battery()
     {

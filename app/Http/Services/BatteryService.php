@@ -38,13 +38,13 @@ class BatteryService
     protected function getSurfersScores($waves)
     {
         foreach ($waves as $wave) {
-            if (!$wave->notes) {
+            if (!$wave->scores) {
                 throw new NotFound("wave " . $wave->id . " has no scores.");
             }
-            $notes = $wave->notes;
+            $scores = $wave->scores;
             $surfers[$wave->surfer->number]['surfer'] = $wave->surfer;
 
-            $avg = calculateAverage([$notes->note_1, $notes->note_2, $notes->note_3]);
+            $avg = calculateAverage([$scores->score_1, $scores->score_2, $scores->score_3]);
             $surfers[$wave->surfer->number]['scores'][] =  $avg;
             rsort($surfers[$wave->surfer_number]['scores']);
 

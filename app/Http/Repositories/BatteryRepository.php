@@ -3,7 +3,6 @@
 namespace App\Http\Repositories;
 
 use App\Models\Battery;
-use App\Models\Notes;
 use App\Models\Wave;
 use Illuminate\Support\Facades\DB;
 
@@ -17,7 +16,7 @@ class BatteryRepository
     }
     public function getBatteryWaves(int $id)
     {
-        $waves = Wave::where("battery_id", $id)->with(["notes", "surfer"])->get();
+        $waves = Wave::where("battery_id", $id)->with(["scores", "surfer"])->get();
         return $waves;
     }
 }
