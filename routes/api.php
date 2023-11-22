@@ -23,7 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('/surfer')->controller(SurferController::class)->group(function () {
-    Route::get('/', 'getAll')->name('surfer.getAll');
+    Route::get('/all', 'getAll')->name('surfer.getAll');
     Route::post('/', 'create')->name('surfer.create');
 });
 
